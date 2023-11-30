@@ -11,7 +11,8 @@
     },
     "permissions": [
         "tabs",
-        "webNavigation"
+        "webNavigation",
+        "storage"
     ],
     "web_accessible_resources" : [
         {

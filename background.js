@@ -1,9 +1,11 @@
-chrome.webNavigation.onBeforeNavigate.addListener(function(details) {
+chrome.webNavigation.onBeforeNavigate.addListener(async function(details) {
     var url = new URL(details.url);
     if (url.hostname === "www.instagram.com" || url.hostname === "instagram.com") {
-        // Cancel the navigation if the URL is Instagram
+        await chrome.storage.session.set({destination: url.href});
+
+        // Redirect to wait page if we're going to instagram
         chrome.tabs.update(details.tabId, {
-            url: "chrome-extension://"+chrome.runtime.id+"/hello.html"
+            url: "chrome-extension://" + chrome.runtime.id + "/hello.html"
         });
     }
 });
