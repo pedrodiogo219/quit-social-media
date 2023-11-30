@@ -1,12 +1,22 @@
 {
-  "manifest_version": 3,
-  "name": "Quit social media",
-  "description": "It's about time",
-  "version": "1.0",
-  "action": {
-    "default_popup": "hello.html"
-  } ,
-  "background": {
-    "service_worker": "background.js"
-  } 
+    "manifest_version": 3,
+    "name": "Quit social media",
+    "description": "It's about time",
+    "version": "1.0",
+    "action": {
+        "default_popup": "hello.html"
+    } ,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "tabs",
+        "webNavigation"
+    ],
+    "web_accessible_resources" : [
+        {
+            "resources": ["hello.html"],
+            "matches": ["*://*/*"]
+        }
+    ]
 }
