@@ -7,7 +7,7 @@
     unlockButton.classList.add('buttonDisabled');
     unlockButton.href = '#';
 
-    let countdown = 30;
+    let countdown = 2;
     unlockButton.textContent = `Unlock (${countdown}s)`;
 
     // Update the button text every second
@@ -22,5 +22,7 @@
         unlockButton.classList.remove('buttonDisabled');
         unlockButton.href = destination.destination;
         unlockButton.textContent = 'Unlock';
+        // send a message to background.js to allow the user to navigate to the destination
+        chrome.runtime.sendMessage({message: "unlock"});
     }, countdown*1000);
 })()
