@@ -18,6 +18,7 @@ h1 {
     color: white;
     text-decoration: none;
     border-radius: 4px;
+    border-width: 0px;
 }
 
 .buttonDisabled {

@@ -18,6 +18,11 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         chrome.storage.session.get("destination", function(result) {
             // remove the listener to allow navigation to the destination
             chrome.webNavigation.onBeforeNavigate.removeListener(redirectToLockPage);
+            // navigate to the destination
+            chrome.tabs.update(sender.tab.id, {
+                url: request.destination
+            });
+
             // add listener again after 3 minutes
             setTimeout(function() {
                 chrome.webNavigation.onBeforeNavigate.addListener(redirectToLockPage);
