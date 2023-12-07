@@ -34,7 +34,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
                         url: tab.url
                     });
                 });   
-            }, 10*1000);
+            }, 3*60*1000);
         });
     }
 });

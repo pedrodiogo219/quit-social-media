@@ -30,6 +30,8 @@ function buttonAction(){
     chrome.runtime.sendMessage({message: "unlock", destination});
 }
 
-function buttonDisabled(){
-    // do nothing
+function buttonCancel() {
+    history.back();
 }
+
+document.getElementById("cancelButton").onclick = buttonCancel;
