@@ -1,13 +1,13 @@
 let destination = "#";
 (async () => {
     destination = (await chrome.storage.session.get("destination")).destination;
+    let countdown = (await chrome.storage.sync.get("pauseTime")).pauseTime;
 
     let unlockButton = document.getElementById("unlockButton");
     // Disable the button initially
     unlockButton.classList.add('buttonDisabled');
     unlockButton.href = '#';
 
-    let countdown = 2;
     unlockButton.textContent = `Unlock (${countdown}s)`;
 
     // Update the button text every second
