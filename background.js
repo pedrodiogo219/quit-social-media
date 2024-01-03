@@ -5,7 +5,7 @@ async function redirectToLockPage(details){
 
         // Redirect to wait page if we're going to instagram
         chrome.tabs.update(details.tabId, {
-            url: "chrome-extension://" + chrome.runtime.id + "/hello.html"
+            url: chrome.runtime.getURL("/blocked-page/blocked-page.html")
         });
     }
 }

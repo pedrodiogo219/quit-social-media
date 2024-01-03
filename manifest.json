@@ -13,7 +13,7 @@
     ],
     "web_accessible_resources" : [
         {
-            "resources": ["hello.html"],
+            "resources": ["blocked-page/blocked-page.html"],
             "matches": ["*://*/*"]
         }
     ]
