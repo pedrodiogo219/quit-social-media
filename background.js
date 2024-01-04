@@ -32,17 +32,24 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             
             // add listener again after the unlockTime passes
             let currentUnlockTime = (await chrome.storage.sync.get("unlockTime")).unlockTime
-            setTimeout(function() {
-                chrome.webNavigation.onBeforeNavigate.addListener(redirectToLockPage);
-                
-                // get current url from that tab
-                chrome.tabs.get(sender.tab.id, function(tab) {
-                    // force navigation to that same url to activate the lock again
-                    chrome.tabs.update(sender.tab.id, {
-                        url: tab.url
+            console.log(currentUnlockTime / 60.0)
+            chrome.alarms.create('myAlarm', { delayInMinutes: currentUnlockTime / 60.0 });
+
+            chrome.alarms.onAlarm.addListener(function(alarm) {
+                console.log("recebi alarm")
+                if (alarm.name === 'myAlarm') {
+                    console.log("foi o alarme esperado")
+                    chrome.webNavigation.onBeforeNavigate.addListener(redirectToLockPage);
+
+                    // get current url from that tab
+                    chrome.tabs.get(sender.tab.id, function(tab) {
+                        // force navigation to that same url to activate the lock again
+                        chrome.tabs.update(sender.tab.id, {
+                            url: tab.url
+                        });
                     });
-                });   
-            }, currentUnlockTime * 1000);
+                }
+            });
         });
     }
 });

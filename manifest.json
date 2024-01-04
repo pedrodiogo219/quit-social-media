@@ -9,7 +9,8 @@
     "permissions": [
         "tabs",
         "webNavigation",
-        "storage"
+        "storage",
+        "alarms"
     ],
     "web_accessible_resources" : [
         {
