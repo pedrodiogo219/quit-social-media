@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Quit social media",
-    "description": "It's about time",
-    "version": "1.0",
+    "description": "It's about time.\nThis extension will gently remind you everytime you try to access social media so you can better spend your time.",
+    "version": "1.0.0",
     "background": {
         "service_worker": "background.js"
     },
