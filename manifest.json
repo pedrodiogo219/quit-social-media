@@ -6,6 +6,9 @@
     "background": {
         "service_worker": "background.js"
     },
+    "icons": {
+        "128": "128.png"
+    },
     "permissions": [
         "tabs",
         "webNavigation",
@@ -16,10 +19,17 @@
         {
             "resources": ["blocked-page/blocked-page.html"],
             "matches": ["*://*/*"]
+        },
+        {
+            "resources": ["popup.html"],
+            "matches": ["<all_urls>"]
         }
     ],
     "options_ui": {
         "page": "options-page/options.html",
         "open_in_tab": false
+    },
+    "action": {
+        "default_popup": "popup.html"
     }
 }
