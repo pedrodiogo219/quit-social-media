@@ -21,7 +21,7 @@
             "matches": ["*://*/*"]
         },
         {
-            "resources": ["popup.html"],
+            "resources": ["popup-page/popup.html"],
             "matches": ["<all_urls>"]
         }
     ],
@@ -30,6 +30,6 @@
         "open_in_tab": false
     },
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "popup-page/popup.html"
     }
 }
