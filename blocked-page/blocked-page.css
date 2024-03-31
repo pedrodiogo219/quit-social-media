@@ -19,6 +19,7 @@ h1 {
     text-decoration: none;
     border-radius: 4px;
     border-width: 0px;
+    cursor: pointer;
 }
 
 .buttonDisabled {
